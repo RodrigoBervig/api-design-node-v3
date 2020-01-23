@@ -1,18 +1,17 @@
 import { Router } from 'express'
-
-const controllers = (req, res) => {
-  res.send({ message: 'hello'})
-}
+import controllers from './item.controllers'
 
 const router = Router()
 
 router
-  .route('/id')
+  .route('/')
   .get(controllers)
   .post(controllers)
 
+// /api/item/:id
 router
   .route('/:id')
+  .get(controllers)
   .put(controllers)
   .delete(controllers)
 
